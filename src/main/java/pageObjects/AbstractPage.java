@@ -12,7 +12,7 @@ import java.util.List;
 
 public class AbstractPage {
 
-    private static WebDriverWait wait = new WebDriverWait(DriverFactory.getDriver(), 10);
+    private WebDriverWait wait = new WebDriverWait(DriverFactory.getDriver(), 10);
 
     AbstractPage() {
     }
@@ -22,8 +22,7 @@ public class AbstractPage {
     }
 
     WebElement getElement(By locator) {
-        WebElement webElement = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-        return webElement;
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
     List<WebElement> getElements(By locator) {
