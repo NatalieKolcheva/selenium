@@ -24,10 +24,9 @@ public class HomePage extends AbstractPage {
     private final By FAQPageButton = By.xpath("//ul[@class='main-nav__list']//a[contains(@class,'faq')]");
 
 
-    public SignInPage clickSignInButton() {
+    public void clickSignInButton() {
         getElement(signInButton).click();
         LOG.info("'Sign in' button clicked");
-        return new SignInPage();
     }
 
     public HomePage proceedToHomePage() {

@@ -9,12 +9,12 @@ public class SignInPageTest extends BaseTest {
     public void verifyErrorMessageAppearsForIncorrectUser() {
         new HomePage()
                 .proceedToHomePage()
-                .clickSignInButton()
+                .clickSignInButton();
+        new SignInPage()
                 .enterEmail("incorrectmail@gmail.com")
                 .clickContinueButton()
                 .enterPassword("incorrectPassword")
-                .clickSignInButton();
-        new SignInPage()
+                .clickSignInButton()
                 .verifyFailedLoginErrorMessageDisplayed();
     }
 
@@ -22,7 +22,8 @@ public class SignInPageTest extends BaseTest {
     public void verifyContinueButtonEnabledWithCorrectCredentialsAll() {
         new HomePage()
                 .proceedToHomePage()
-                .clickSignInButton()
+                .clickSignInButton();
+        new SignInPage()
                 .enterEmail("kkwoyvdwxshuccvytsrsgperjinwgxzldpupukbwfkmjqhdghmwhzmhhvblurox@gmail.com")
                 .verifyIfContinueButtonEnabled();
     }
@@ -31,7 +32,8 @@ public class SignInPageTest extends BaseTest {
     public void verifyContinueButtonEnabledWithCorrectCredentials() {
         new HomePage()
                 .proceedToHomePage()
-                .clickSignInButton()
+                .clickSignInButton();
+        new SignInPage()
                 .enterEmail("kkwoyvdwxshuccvytsrsgperjinwgxzldpupukbwfkmjqhdghmwhzmhhvbluroxh@gmail.com")
                 .verifyIfContinueButtonEnabled();
     }
@@ -40,7 +42,8 @@ public class SignInPageTest extends BaseTest {
     public void verifyContinueButtonEnabledWithCorrectCredentialsTopLevelDomTwoSymbols() {
         new HomePage()
                 .proceedToHomePage()
-                .clickSignInButton()
+                .clickSignInButton();
+        new SignInPage()
                 .enterEmail("kkwoyvdwxshuccvytsrsgperjinwgxzldpupukbwfkmjqhdghmwhzmhhvblurox@gmail.co")
                 .verifyIfContinueButtonEnabled();
     }
@@ -49,7 +52,8 @@ public class SignInPageTest extends BaseTest {
     public void verifyContinueButtonEnabledWithCorrectCredentialsTopLevelDomTenSymbols() {
         new HomePage()
                 .proceedToHomePage()
-                .clickSignInButton()
+                .clickSignInButton();
+        new SignInPage()
                 .enterEmail("kkwoyvdwxshuccvytsrsgperjinwgxzldpupukbwfkmjqhdghmwhzmhhvblurox@gmail.commmmmmmm")
                 .verifyIfContinueButtonEnabled();
     }
@@ -58,7 +62,8 @@ public class SignInPageTest extends BaseTest {
     public void verifyContinueButtonNotEnabledWithoutSymbol() {
         new HomePage()
                 .proceedToHomePage()
-                .clickSignInButton()
+                .clickSignInButton();
+        new SignInPage()
                 .enterEmail("incorrectmailgmail.com")
                 .verifyIsContinueButtonEnabled();
     }
@@ -67,7 +72,8 @@ public class SignInPageTest extends BaseTest {
     public void verifyContinueButtonNotEnabledWithSymbolOnBeginning() {
         new HomePage()
                 .proceedToHomePage()
-                .clickSignInButton()
+                .clickSignInButton();
+        new SignInPage()
                 .enterEmail("@incorrectmailgmail.com")
                 .verifyIsContinueButtonEnabled();
     }
@@ -76,7 +82,8 @@ public class SignInPageTest extends BaseTest {
     public void verifyContinueButtonNotEnabledWithoutDot() {
         new HomePage()
                 .proceedToHomePage()
-                .clickSignInButton()
+                .clickSignInButton();
+        new SignInPage()
                 .enterEmail("natalykolcheva@gmailcom")
                 .verifyIsContinueButtonEnabled();
     }
@@ -85,7 +92,8 @@ public class SignInPageTest extends BaseTest {
     public void verifyContinueButtonNotEnabledWithOneCharTopLevelDomain() {
         new HomePage()
                 .proceedToHomePage()
-                .clickSignInButton()
+                .clickSignInButton();
+        new SignInPage()
                 .enterEmail("natalykolcheva@gmail.c")
                 .verifyIsContinueButtonEnabled();
     }
@@ -94,7 +102,8 @@ public class SignInPageTest extends BaseTest {
     public void verifyContinueButtonNotEnabledWithHugeRecipientName() {
         new HomePage()
                 .proceedToHomePage()
-                .clickSignInButton()
+                .clickSignInButton();
+        new SignInPage()
                 .enterEmail("bgciyrlhcelyenbrmvqcjpczbqqtbobmkszfkalthesgypoypozhiyprkwyypxved@gmail.com")
                 .verifyIsContinueButtonEnabled();
     }

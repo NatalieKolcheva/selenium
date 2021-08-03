@@ -52,10 +52,10 @@ public class SignInPage extends AbstractPage {
         return this;
     }
 
-    public HomePage clickSignInButton() {
+    public SignInPage clickSignInButton() {
         getElement(signInButton).click();
         LOG.info("Sign in button clicked.");
-        return new HomePage();
+        return this;
     }
 
     public boolean isLoginFailedErrorMessageDisplayed() {
