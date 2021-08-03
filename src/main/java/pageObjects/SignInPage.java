@@ -30,7 +30,7 @@ public class SignInPage extends AbstractPage {
         return isEnabled;
     }
 
-    public void verifyIsContinueButtonEnabled() {
+    public void verifyIfContinueButtonDisabled() {
         Assert.assertFalse(isContinueButtonEnabled(),
                 "Test Failed. Continue Button should not be enabled");
     }
