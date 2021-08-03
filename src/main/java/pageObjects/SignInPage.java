@@ -8,15 +8,15 @@ public class SignInPage extends AbstractPage {
 
     private static final Logger LOG = Logger.getLogger(SignInPage.class);
 
-    private By mailInput = By.id("username");
+    private final By mailInput = By.id("username");
 
-    private By passwordInput = By.id("password");
+    private final By passwordInput = By.id("password");
 
-    private By signInButton = By.id("kc-login");
+    private final By signInButton = By.id("kc-login");
 
-    private By continueButton = By.id("kc-login-next");
+    private final By continueButton = By.id("kc-login-next");
 
-    private By loginFailedErrorMessage = By.xpath("//span[text()=\"We can't find user with such credentials.\"]");
+    private final By loginFailedErrorMessage = By.xpath("//span[text()=\"We can't find user with such credentials.\"]");
 
     public SignInPage enterEmail(String email) {
         getElement(mailInput).sendKeys(email);
@@ -34,6 +34,7 @@ public class SignInPage extends AbstractPage {
         Assert.assertFalse(isContinueButtonEnabled(),
                 "Test Failed. Continue Button should not be enabled");
     }
+
     public void verifyIfContinueButtonEnabled() {
         Assert.assertTrue(isContinueButtonEnabled(),
                 "Test Failed. Continue Button not enabled");

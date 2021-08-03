@@ -18,18 +18,20 @@ public abstract class DriverFactory {
 
     protected void initDriver(final String browserName) {
 
-        if (Constants.DriverConfigs.CHROME_NAME.equalsIgnoreCase(browserName)) {
+        if (Constants.CHROME_NAME.getValue().equalsIgnoreCase(browserName)) {
 //            System.setProperty(Constants.DriverConfigs.CHROME_NAME, Constants.DriverConfigs.CHROME_DRIVER_LOCATION);
             webDriver = new ChromeDriver();
-        } else if (Constants.DriverConfigs.FIREFOX_NAME.equalsIgnoreCase(browserName)) {
-            System.setProperty(Constants.DriverConfigs.FIREFOX_NAME, Constants.DriverConfigs.FIREFOX_DRIVER_LOCATION);
+        } else if (Constants.FIREFOX_NAME.getValue().equalsIgnoreCase(browserName)) {
+            System.setProperty(Constants.FIREFOX_NAME.getValue(), Constants.FIREFOX_DRIVER_LOCATION.getValue());
             webDriver = new FirefoxDriver();
-        } else if (Constants.DriverConfigs.EDGE_NAME.equalsIgnoreCase(browserName)) {
-            System.setProperty(Constants.DriverConfigs.EDGE_NAME, Constants.DriverConfigs.EDGE_DRIVER_LOCATION);
+        } else if (Constants.EDGE_NAME.getValue().equalsIgnoreCase(browserName)) {
+            System.setProperty(Constants.EDGE_NAME.getValue(), Constants.EDGE_DRIVER_LOCATION.getValue());
             webDriver = new EdgeDriver();
         }
         webDriver.manage().window().maximize();
-        webDriver.manage().timeouts().implicitlyWait(Constants.DriverConfigs.IMPLICITLY_WAIT_VALUE, TimeUnit.SECONDS);
+        webDriver.manage()
+                .timeouts()
+                .implicitlyWait(Integer.parseInt(Constants.IMPLICITLY_WAIT_VALUE.getValue()), TimeUnit.SECONDS);
     }
 
     protected void quitDriver() {

@@ -12,7 +12,7 @@ import java.util.List;
 
 public class AbstractPage {
 
-    private WebDriverWait wait = new WebDriverWait(DriverFactory.getDriver(), 10);
+    private final WebDriverWait wait = new WebDriverWait(DriverFactory.getDriver(), 10);
 
     AbstractPage() {
     }

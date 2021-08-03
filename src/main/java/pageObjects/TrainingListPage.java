@@ -1,6 +1,6 @@
 package pageObjects;
 
-public class TrainingListPage{
+public class TrainingListPage {
 
 
 }

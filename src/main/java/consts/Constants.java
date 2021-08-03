@@ -1,23 +1,24 @@
 package consts;
 
-public interface Constants {
+public enum Constants {
 
-    //Constants should be stored in Enums or files
-    interface DriverConfigs{
-        String CHROME_NAME = "webdriver.chrome.driver";
-        String FIREFOX_NAME = "webdriver.gecko.driver";
-        String EDGE_NAME = "webdriver.edge.driver";
+    CHROME_NAME("webdriver.chrome.driver"),
+    FIREFOX_NAME("webdriver.gecko.driver"),
+    EDGE_NAME("webdriver.edge.driver"),
+    CHROME_DRIVER_LOCATION("src/main/resources/chromedriver.exe"),
+    FIREFOX_DRIVER_LOCATION(""),
+    EDGE_DRIVER_LOCATION("src/main/resources/MicrosoftWebDriver.exe"),
+    IMPLICITLY_WAIT_VALUE("10"),
+    BASE_URL("https://training.by"),
+    HOME_PAGE_URL(BASE_URL.value + "/#/Home");
 
-        String CHROME_DRIVER_LOCATION = "src/main/resources/chromedriver.exe";
-        String FIREFOX_DRIVER_LOCATION = "";
-        String EDGE_DRIVER_LOCATION = "src/main/resources/MicrosoftWebDriver.exe";
+    private final String value;
 
-        int IMPLICITLY_WAIT_VALUE = 10;
+    Constants(String s) {
+        this.value = s;
     }
 
-    interface BusinessConfigs {
-        String BASE_URL = "https://training.by";
-        String HOME_PAGE_URL = BASE_URL + "/#/Home";
+    public String getValue() {
+        return value;
     }
-
 }
