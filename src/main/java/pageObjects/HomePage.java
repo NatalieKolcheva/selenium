@@ -4,7 +4,7 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 
-import static consts.Constants.HOME_PAGE_URL;
+import static consts.PageConstants.HOME_PAGE_URL;
 
 
 public class HomePage extends AbstractPage {
@@ -14,10 +14,6 @@ public class HomePage extends AbstractPage {
     private final By signInButton = By.className("header-auth__signin");
 
     private final By topRightCornerUserNameElement = By.className("user-info__name");
-
-    private final By trainingListPageButton = By.xpath("//ul[@class='main-nav__list']//a[contains(@class,'training')]");
-
-    private final By newsPageButton = By.className("//ul[@class='main-nav__list']//a[contains(@class,'news')]");
 
     private final By aboutPageButton = By.className("//ul[@class='main-nav__list']//a[contains(@class,'about')]");
 
@@ -43,18 +39,6 @@ public class HomePage extends AbstractPage {
 
     public String getLoggedInUserName() {
         return getElement(topRightCornerUserNameElement).getText();
-    }
-
-    public AboutPage openAboutPage() {
-        getElement(aboutPageButton).click();
-        LOG.info("Open 'About' page.");
-        return new AboutPage();
-    }
-
-    public FAQPage openFAQPage() {
-        getElement(FAQPageButton).click();
-        LOG.info("Open 'FAQ' page.");
-        return new FAQPage();
     }
 
     public void verifyUserIsLoggedIn() {

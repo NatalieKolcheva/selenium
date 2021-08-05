@@ -1,6 +1,6 @@
 package driver;
 
-import consts.Constants;
+import consts.DriverConstants;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -16,25 +16,25 @@ public abstract class DriverFactory {
         return webDriver;
     }
 
-    protected void initDriver(final String browserName) {
+    public static void initDriver(final String browserName) {
 
-        if (Constants.CHROME_NAME.getValue().equalsIgnoreCase(browserName)) {
+        if (DriverConstants.CHROME_NAME.getValue().equalsIgnoreCase(browserName)) {
 //            System.setProperty(Constants.DriverConfigs.CHROME_NAME, Constants.DriverConfigs.CHROME_DRIVER_LOCATION);
             webDriver = new ChromeDriver();
-        } else if (Constants.FIREFOX_NAME.getValue().equalsIgnoreCase(browserName)) {
-            System.setProperty(Constants.FIREFOX_NAME.getValue(), Constants.FIREFOX_DRIVER_LOCATION.getValue());
+        } else if (DriverConstants.FIREFOX_NAME.getValue().equalsIgnoreCase(browserName)) {
+            System.setProperty(DriverConstants.FIREFOX_NAME.getValue(), DriverConstants.FIREFOX_DRIVER_LOCATION.getValue());
             webDriver = new FirefoxDriver();
-        } else if (Constants.EDGE_NAME.getValue().equalsIgnoreCase(browserName)) {
-            System.setProperty(Constants.EDGE_NAME.getValue(), Constants.EDGE_DRIVER_LOCATION.getValue());
+        } else if (DriverConstants.EDGE_NAME.getValue().equalsIgnoreCase(browserName)) {
+            System.setProperty(DriverConstants.EDGE_NAME.getValue(), DriverConstants.EDGE_DRIVER_LOCATION.getValue());
             webDriver = new EdgeDriver();
         }
         webDriver.manage().window().maximize();
         webDriver.manage()
                 .timeouts()
-                .implicitlyWait(Integer.parseInt(Constants.IMPLICITLY_WAIT_VALUE.getValue()), TimeUnit.SECONDS);
+                .implicitlyWait(Integer.parseInt(DriverConstants.IMPLICITLY_WAIT_VALUE.getValue()), TimeUnit.SECONDS);
     }
 
-    protected void quitDriver() {
+    public static void quitDriver() {
         if (webDriver != null) {
             webDriver.quit();
             webDriver = null;

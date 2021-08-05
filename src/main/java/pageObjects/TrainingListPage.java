@@ -3,7 +3,6 @@ package pageObjects;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.testng.asserts.SoftAssert;
 
 import java.util.List;
 
@@ -38,20 +37,28 @@ public class TrainingListPage extends AbstractPage {
         return this;
     }
 
-    public TrainingListPage checkNotEmptyCoursesList(String course) {
+    public Integer getCoursesAmount(String course) {
         String xpath = String.format("//div[@class='training-list__container training-list__desktop']//div[contains(text(),'%s')]", course);
         List<WebElement> webElements = getElements(By.xpath(xpath));
-        SoftAssert softAssert = new SoftAssert();
-        softAssert.assertTrue(webElements.size() > 0, String.format("%s course not found.", course));
-        return this;
+        return webElements.size();
     }
 
-    public TrainingListPage checkEmptyCoursesList(String course) {
-        String xpath = String.format("//div[@class='training-list__container training-list__desktop']//div[contains(text(),'%s')]", course);
-        List<WebElement> webElements = getElements(By.xpath(xpath));
-        SoftAssert softAssert = new SoftAssert();
-        softAssert.assertTrue(webElements.size() == 0, String.format("%s course is found.", course));
-        return this;
-    }
+//    public TrainingListPage checkNotEmptyCoursesList(String course) {
+//        String xpath = String.format("//div[@class='training-list__container training-list__desktop']//div[contains(text(),'%s')]", course);
+//        List<WebElement> webElements = getElements(By.xpath(xpath));
+//        SoftAssert softAssert = new SoftAssert();
+//        softAssert.assertTrue(webElements.size() > 0, String.format("%s course not found.", course));
+//        softAssert.assertAll();
+//        return this;
+//    }
+//
+//    public TrainingListPage checkEmptyCoursesList(String course) {
+//        String xpath = String.format("//div[@class='training-list__container training-list__desktop']//div[contains(text(),'%s')]", course);
+//        List<WebElement> webElements = getElements(By.xpath(xpath));
+//        SoftAssert softAssert = new SoftAssert();
+//        softAssert.assertTrue(webElements.size() == 0, String.format("%s course is found.", course));
+//        softAssert.assertAll();
+//        return this;
+//    }
 
 }
